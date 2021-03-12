@@ -1,7 +1,8 @@
 <?php
     
 if(isset($_POST['phone'])){
-    $url = "https://test.ortau.kz/";
+    $url = 'https://ramscity.kz';
+    $from_url = $_POST['fullurl'];
     $name = $_POST['name'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
@@ -22,14 +23,15 @@ if(isset($_POST['phone'])){
             '310837' => $utm_medium,
             '310839' => $utm_campaign,
             '310843' => $utm_term,
-            '310841' => $utm_content
+            '310841' => $utm_content,
+            '311489' => $from_url
             ]
         ];
 
     $str = http_build_query($form_data);
     $curl = curl_init();
     
-    curl_setopt($curl, CURLOPT_URL, 'http://amoconnect.ru/amo-rams/api/slug/video');
+    curl_setopt($curl, CURLOPT_URL, 'http://amoconnect.ru/amo-rams/api/slug/ramscity-kz');
     curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_POSTFIELDS, $str);
     $result = curl_exec($curl);
